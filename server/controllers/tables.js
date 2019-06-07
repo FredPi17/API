@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('node_red', 'node_red', 'nodered', {
-    host: 'raspberrysqlserver.ddns.net',
+const sequelize = new Sequelize('DATABASE', 'PASSWORD', 'PASSWORD', {
+    host: 'HOST_DATABASE',
     dialect: 'postgres'
 });
 import db from '../models/index';
