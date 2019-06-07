@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "node_red",
-    "password": "nodered",
-    "database": "node_red",
-    "host": "raspberrysqlserver.ddns.net",
+    "username": "USER_NAME",
+    "password": "PASSWORD",
+    "database": "DATABASE_NAME",
+    "host": "DATABSE_HOST_ADDRESS",
     "dialect": "postgres"
   },
   "test": {
-    "username": "node_red",
-    "password": "nodered",
-    "database": "node_red",
-    "host": "raspberrysqlserver.ddns.net",
+    "username": "USER_NAME",
+    "password": "PASSWORD",
+    "database": "DATABASE_NAME",
+    "host": "DATABSE_HOST_ADDRESS",
     "dialect": "postgres"
   },
   "production": {
-    "username": "node_red",
-    "password": "nodered",
-    "database": "node_red",
-    "host": "raspberrysqlserver.ddns.net",
+    "username": "USER_NAME",
+    "password": "PASSWORD",
+    "database": "DATABASE_NAME",
+    "host": "DATABSE_HOST_ADDRESS",
     "dialect": "postgres"
   }
 }
