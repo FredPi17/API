@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "node_red",
+    "password": "nodered",
+    "database": "node_red",
+    "host": "raspberrysqlserver.ddns.net",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "node_red",
+    "password": "nodered",
+    "database": "node_red",
+    "host": "raspberrysqlserver.ddns.net",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "node_red",
+    "password": "nodered",
+    "database": "node_red",
+    "host": "raspberrysqlserver.ddns.net",
+    "dialect": "postgres"
+  }
+}
