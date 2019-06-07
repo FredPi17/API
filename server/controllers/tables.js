@@ -9,28 +9,28 @@ class Tables {
     static insert(req, res) {
         const { temp, hum, fenetre, chauffage } = req.body;
         db.query("INSERT INTO "+req.params.piece+" (temp, hum, fenetre, chauffage) VALUES ("+temp+", "+hum+", "+fenetre+", "+chauffage+")", { raw: true})
-            .then(userData => res.status(201).send({
+            .then(data => res.status(201).send({
                 success: true,
                 message: 'User successfully created',
-                userData
+                data
             }))
     };
 
     static getAll(req, res) {
-        sequelize.query("SELECT * FROM "+req.params.piece, {raw: true})
-            .then(userData => res.status(201).send({
+        sequelize.query("SELECT * FROM pg_catalog.pg_tables WHERE schemaname = 'public'", {raw: true})
+            .then(data => res.status(201).send({
                 success: true,
-                message: 'Get all data from '+req.params.piece+'',
-                userData
+                message: 'Get all tables ',
+                data
             }))
     };
 
     static getNumberByPiece(req, res) {
         sequelize.query("SELECT * FROM "+req.params.piece+" ORDER BY id DESC LIMIT "+req.params.number+"", {raw: true})
-            .then(userData => res.status(201).send({
+            .then(data => res.status(201).send({
                 success: true,
                 message: 'Get last '+req.params.number+' from '+req.params.piece+'',
-                userData
+                data
             }))
     };
 
