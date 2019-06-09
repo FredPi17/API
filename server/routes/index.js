@@ -16,5 +16,7 @@ export default (app) => {
     app.put('/api/pieces/:piece/:id', Pieces.updateData); //API route to edit the :piece data with :id
 
     // routes for tables
-    app.get('/api/tables', Tables.getAll);
+    app.get('/api/tables', Tables.getAll); // API route to get all tables from DB
+    app.post('/api/tables/:table', Tables.insert); // API route to add a new table on DB
+
 };

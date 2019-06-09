@@ -6,6 +6,7 @@ const sequelize = new Sequelize('node_red', 'node_red', 'nodered', {
 import db from '../models/index';
 
 class Tables {
+    // TODO: Faire la création d'une table
     static insert(req, res) {
         const { temp, hum, fenetre, chauffage } = req.body;
         db.query("INSERT INTO "+req.params.piece+" (temp, hum, fenetre, chauffage) VALUES ("+temp+", "+hum+", "+fenetre+", "+chauffage+")", { raw: true})
@@ -25,6 +26,7 @@ class Tables {
             }))
     };
 
+    // TODO: Faire la récupération des infos par nom de table
     static getNumberByPiece(req, res) {
         sequelize.query("SELECT * FROM "+req.params.piece+" ORDER BY id DESC LIMIT "+req.params.number+"", {raw: true})
             .then(data => res.status(201).send({
@@ -34,6 +36,7 @@ class Tables {
             }))
     };
 
+    // TODO: Faire la suppression d'une table avec son nom
     static deleteData(req, res) {
         sequelize.query("DELETE FROM "+req.params.piece+" WHERE id="+req.params.id+"", {raw: true})
             .then(userData => res.status(201).send({
@@ -43,6 +46,7 @@ class Tables {
             }))
     };
 
+    // TODO: Faire la mise à jour d'une table
     static updateData(req, res) {
         const { temp, hum, fenetre, chauffage } = req.body;
         sequelize.query("UPDATE "+req.params.piece+" SET temp = "+temp+", hum = "+hum+", fenetre = "+fenetre+", chauffage = "+chauffage+" WHERE id = "+req.params.id+"", {raw: true})
