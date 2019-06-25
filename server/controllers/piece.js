@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('DATABASE', 'PASSWORD', 'PASSWORD', {
     host: 'HOST_DATABASE',
-    dialect: 'postgres'
+    dialect: 'mysql'
 });
 
 class Pieces {
