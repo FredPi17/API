@@ -1,11 +1,14 @@
 {
   "development": {
-    "username": "USER_NAME",
-    "password": "PASSWORD",
-    "database": "DATABASE_NAME",
-    "host": "DATABSE_HOST_ADDRESS",
-    "dialect": "postgres"
-  },
+    "username": "node_red",
+    "password": "nodered",
+    "database": "node_red",
+    "host": "0.0.0.0",
+    "dialect": "mysql"
+  }
+}
+,
+,
   "test": {
     "username": "USER_NAME",
     "password": "PASSWORD",

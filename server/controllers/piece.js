@@ -5,18 +5,8 @@ const sequelize = new Sequelize('DATABASE', 'PASSWORD', 'PASSWORD', {
 });
 
 class Pieces {
-    static insert(req, res) {
-        const { temp, hum, fenetre, chauffage } = req.body;
-        sequelize.query("INSERT INTO "+req.params.piece+" (temp, hum, fenetre, chauffage) VALUES ("+temp+", "+hum+", "+fenetre+", "+chauffage+")", { raw: true})
-            .then(data => res.status(201).send({
-            success: true,
-            message: 'User successfully created',
-                data
-        }))
-    };
-
     static getAll(req, res) {
-        sequelize.query("SELECT * FROM "+req.params.piece, {raw: true})
+        sequelize.query("SELECT * FROM " + req.params.piece, {type: sequelize.QueryTypes.SELECT})
             .then(data => res.status(201).send({
                 success: true,
                 message: 'Get all data from '+req.params.piece+'',
@@ -25,7 +15,7 @@ class Pieces {
     };
 
     static getNumberByPiece(req, res) {
-        sequelize.query("SELECT * FROM "+req.params.piece+" ORDER BY id DESC LIMIT "+req.params.number+"", {raw: true})
+        sequelize.query("SELECT * FROM " + req.params.piece + " ORDER BY id DESC LIMIT " + req.params.number + "", {type: sequelize.QueryTypes.SELECT})
             .then(data => res.status(201).send({
                 success: true,
                 message: 'Get last '+req.params.number+' from '+req.params.piece+'',
@@ -34,29 +24,10 @@ class Pieces {
     };
 
     static getOneTable(req, res) {
-        sequelize.query("SELECT " + req.params.table + " from " + req.params.piece + "", {raw: true})
+        sequelize.query("SELECT " + req.params.table + " from " + req.params.piece + "", {type: sequelize.QueryTypes.SELECT})
             .then(data => res.status(201).send({
                 success: true,
                 message: 'Get ' + req.params.table + ' from ' + req.params.piece + '',
-                data
-            }))
-    };
-
-    static deleteData(req, res) {
-        sequelize.query("DELETE FROM "+req.params.piece+" WHERE id="+req.params.id+"", {raw: true})
-            .then(data => res.status(201).send({
-                success: true,
-                message: 'Deleted data with id='+req.params.id+' on '+req.params.piece+'',
-                data
-            }))
-    };
-
-    static updateData(req, res) {
-        const { temp, hum, fenetre, chauffage } = req.body;
-        sequelize.query("UPDATE "+req.params.piece+" SET temp = "+temp+", hum = "+hum+", fenetre = "+fenetre+", chauffage = "+chauffage+" WHERE id = "+req.params.id+"", {raw: true})
-            .then(data => res.status(201).send({
-                success: true,
-                message: 'Update data from '+req.params.piece+' where id='+req.params.id+'',
                 data
             }))
     };
