@@ -1,8 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('DATABASE', 'PASSWORD', 'PASSWORD', {
-    host: 'HOST_DATABASE',
-    dialect: 'mysql'
-});
+const sequelize = new Sequelize('mysql://node_red:nodered@fredericpinaud.ddns.net:3306/node_red');
 
 class Tables {
     static getAll(req, res) {

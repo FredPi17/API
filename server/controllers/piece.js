@@ -1,8 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('DATABASE', 'PASSWORD', 'PASSWORD', {
-    host: 'HOST_DATABASE',
-    dialect: 'mysql'
-});
+const sequelize = new Sequelize('mysql://node_red:nodered@fredericpinaud.ddns.net:3306/node_red');
 
 class Pieces {
     static getAll(req, res) {
@@ -15,7 +12,8 @@ class Pieces {
     };
 
     static getNumberByPiece(req, res) {
-        sequelize.query("SELECT * FROM " + req.params.piece + " ORDER BY id DESC LIMIT " + req.params.number + "", {type: sequelize.QueryTypes.SELECT})
+        sequelize.query("SELECT * FROM " + req.params.piece + " ORDER BY id DESC LIMIT " + req.params.number + "",
+            {type: sequelize.QueryTypes.SELECT})
             .then(data => res.status(201).send({
                 success: true,
                 message: 'Get last '+req.params.number+' from '+req.params.piece+'',
